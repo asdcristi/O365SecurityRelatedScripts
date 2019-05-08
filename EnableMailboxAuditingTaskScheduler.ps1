@@ -23,14 +23,14 @@ $AESKeyFile | Out-File C:\temp\AESKey.key
 
 $PasswordFile = "C:\temp\Password.txt"
 $Key = Get-Content -Path C:\temp\AESKey.key
-$Credential = ConvertTo-SecureString -String 'MSTest123' -AsPlainText -Force
+$Credential = ConvertTo-SecureString -String 'PasswordHere' -AsPlainText -Force
 $EncryptedCredential = ConvertFrom-SecureString -SecureString $Credential -Key $Key | Set-Content -Path C:\temp\Password.txt `
 -OutVariable $EncryptedCredential
 
 #>
 
 # Retrieve Credentials stored and opening connection to the Exchange Online PowerShell Endpoint
-$AdminUser = "admin@mstcrrad.onmicrosoft.com"
+$AdminUser = "admin@contoso.onmicrosoft.com"
 $EncryptedCredential = Get-Content -Path C:\temp\Password.txt
 $Key = Get-Content C:\temp\AESKey.key
 $SecureString = ConvertTo-SecureString -String $EncryptedCredential -Key $Key
