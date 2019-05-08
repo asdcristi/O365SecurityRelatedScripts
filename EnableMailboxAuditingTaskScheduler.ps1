@@ -52,7 +52,7 @@ Write-Host "Enabling Mailbox Audit for all Users/SharedMailboxes retrieved.." -F
 
 foreach ($User in $Users) 
 
-	{    
+   {    
 	    Set-Mailbox -Identity $User.UserPrincipalName -AuditEnabled $true `
         -AuditAdmin Copy, Create, FolderBind, HardDelete, Move, MoveToDeletedItems, SendAs, SendOnBehalf,`
                     SoftDelete, Update, UpdateInboxRules, UpdateFolderPermissions, UpdateCalendarDelegation `
